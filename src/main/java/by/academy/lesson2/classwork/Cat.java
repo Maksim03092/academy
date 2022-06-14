@@ -32,8 +32,8 @@ public class Cat {
         return age;
     }
 
-    public void setAge(int age) {
-        this.age = age;
+    public void setAge(int _age) {
+        this.age = _age;
     }
 
     public String getName() {
