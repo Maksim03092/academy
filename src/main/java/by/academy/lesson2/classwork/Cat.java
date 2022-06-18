@@ -1,54 +1,26 @@
 package by.academy.lesson2.classwork;
 
 public class Cat {
+    int age;
+    String nickname;
+    double money;
+    char initials;
+    boolean isHomeAnimal;
 
-    private int age;
-
-    private String nickname;
-
-    private double money;
-
-    private char initials;
-
-    private boolean isHomeAnimal;
-
-    public void grow() {
+    public void grow(){
         age++;
     }
 
-    public void sleep() {
+    public void sleep(){
         System.out.println("Кот спит");
     }
 
-    public void eat() {
+    public void eat(){
         System.out.println("Кот ест");
     }
 
-    public void walk() {
+    public void walk(){
         System.out.println("Кот гуляет");
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int _age) {
-        this.age = _age;
-    }
-
-    public String getName() {
-        return nickname;
-    }
-
-    public void setName(String name) {
-        this.nickname = name;
-    }
-
-    public Cat() {
-    }
-
-    public Cat(String name) {
-        this.nickname = name;
     }
 
     public double getMoney() {
@@ -60,18 +32,29 @@ public class Cat {
     }
 
     public char getInitials() {
-        return initials = nickname.charAt(0);
+        return initials;
     }
 
-    public void setInitials() {
-        this.initials = nickname.charAt(0);
+    public void setInitials(char initials) {
+        this.initials = initials;
     }
 
     public boolean isHomeAnimal() {
         return isHomeAnimal;
     }
 
-    public void setHomeAnimal(boolean homeAnimal) {
-        isHomeAnimal = homeAnimal;
+    public void setHomeAnimal(boolean isHomeAnimal) {
+        this.isHomeAnimal = isHomeAnimal;
     }
+
+    public Cat(){
+
+    }
+
+    public Cat(String nickname){
+     this.nickname = nickname;
+     this.initials = nickname.charAt(0);
+    }
+
 }
+
