@@ -53,7 +53,7 @@ public class Cat {
 
     public Cat(String nickname){
      this.nickname = nickname;
-     this.initials = nickname.charAt(0);
+     initials = nickname.charAt(0);
     }
 
 }
