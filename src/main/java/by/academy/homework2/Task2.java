@@ -36,16 +36,13 @@ public class Task2 {
                 }
             }
 
-            if (max == 0){
+            if (max == 0 || max > n){
                 max = n;
                 index = i;
                 n = 0;
             }
-            else if (max > n){
-                max = n;
-                index = i;
+            else
                 n = 0;
-            }
         }
         System.out.println(words[index]);
     }
