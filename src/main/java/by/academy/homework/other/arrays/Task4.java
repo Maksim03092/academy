@@ -12,14 +12,14 @@ public class Task4 {
         int [][] array1 = new int[5][2];
         int max = 0, min = 0;
         boolean forMax = true, forMin = true;
+        System.out.println("Введите значения массива: ");
         for (int i = 0; i < 5; i++){
             for (int j = 0; j < 8; j++){
                 array[i][j] = scanner.nextInt();
             }
         }
         for (int i = 0; i < 5; i++){
-            for (int j = 0; j < 4; j++){
-                if (j != 7) {
+            for (int j = 0; j < 8; j++){
                     if (forMax == true || max < array[i][j]) {
                         max = array[i][j];
                         forMax = false;
@@ -28,21 +28,19 @@ public class Task4 {
                         min = array[i][j];
                         forMin = false;
                     }
-                }
-                else {
-                    array1[i][0] = max;
-                    array1[i][1] = min;
-                }
             }
+            array1[i][0] = max;
+            array1[i][1] = min;
+            max = 0;
+            min = 0;
+            forMax = true;
+            forMin = true;
         }
         for (int i = 0; i < 5; i++) {
             for (int j = 0; j < 2; j++) {
-                System.out.print(array1[i][j]+ '\t');
-                if (j == 1){
-                    System.out.println('\n');
-                }
+                System.out.print(array1[i][j]+ "\t");
             }
+            System.out.println("\n");
         }
     }
-
 }

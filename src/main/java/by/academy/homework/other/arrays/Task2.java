@@ -20,10 +20,8 @@ public class Task2 {
         for (int i = 0; i < 3; i++){
             for (int j = 0; j < 6; j++){
                 System.out.print(array[i][j] + "\t");
-                if (j == 5){
-                    System.out.println('\n');
-                }
             }
+            System.out.println('\n');
         }
     }
 }

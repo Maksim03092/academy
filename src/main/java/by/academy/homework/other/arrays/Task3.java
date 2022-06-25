@@ -20,11 +20,9 @@ public class Task3 {
 
         for (int i = 0; i < 4; i++){
             for (int j = 0; j < 2; j++){
-                if ( j == 1 ) {
-                    System.out.println("\n");
-                }
                 System.out.println(array[i][j]);
             }
+            System.out.println('\n');
         }
     }
 
