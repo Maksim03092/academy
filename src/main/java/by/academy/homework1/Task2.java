@@ -9,7 +9,6 @@ public class Task2 {
 
         System.out.print("Введите тип данных: ");
         Scanner in = new Scanner(System.in);
-
         dataType = in.next();
 
         switch (dataType){
@@ -36,10 +35,11 @@ public class Task2 {
             case "String" :
                 System.out.print("Введите слово: ");
                 String value5 = in.next();
-                System.out.println("Hello"+ value5);
+                System.out.println("Hello "+ value5);
                 break;
             default:
                 System.out.println("Unsupported type");
         }
+        in.close();
     }
 }
