@@ -8,36 +8,41 @@ public class Task1 {
 
     public static void main(String[] args) {
 
-        byte[] symbol = new byte[127];
-        byte i = 0, c = 0;
-        boolean check = true;
+        int[] symbols = new int[255];
+
         System.out.print("Введите первое слово: ");
         String word1 = scanner.nextLine();
+
         System.out.print("Введите второе слово: ");
         String word2 = scanner.nextLine();
+        scanner.close();
+
+        boolean check = true;
+
         if (word1.length() != word2.length()){
-            System.out.println("false");
+            check = false;
         }
         else {
-            for (byte j = 0; j < symbol.length; j++){
-                if (j == word1.charAt(i)){
-                    symbol[j]++;
-                    if (i<word1.length()-1)
-                    i++;
+            for (int i = 0; i < symbols.length; i++){
+                for (int j = 0; j < word1.length(); j++){
+                    if (i == word1.charAt(j)){
+                        symbols[i]++;
+                    }
                 }
-                if (j == word2.charAt(c)){
-                    symbol[j]--;
-                    if (c<word2.length()-1)
-                    c++;
+                for (int j = 0; j < word2.length(); j++){
+                    if (i == word2.charAt(j)){
+                        symbols[i]--;
+                    }
                 }
             }
         }
-        for (byte j = 0; j < symbol.length; j++){
-            if (symbol[j] != 0){
+        for (int i = 0; i < symbols.length; i++){
+            System.out.print(symbols[i] + "\t");
+            if (symbols[i] != 0){
                 check = false;
                 break;
             }
         }
-        System.out.println(check);
+        System.out.println("\n"+check);
     }
 }

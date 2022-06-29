@@ -13,6 +13,7 @@ public class Task3 {
 
         System.out.println("Введите второе слово");
         String word2 = scanner.nextLine();
+        scanner.close();
 
         for(int i = 0; i < word1.length()/2; i++ ){
             System.out.print(word1.charAt(i));
@@ -20,6 +21,5 @@ public class Task3 {
         for (int i = word2.length()/2; i < word2.length(); i++){
             System.out.print(word2.charAt(i));
         }
-        scanner.close();
     }
 }

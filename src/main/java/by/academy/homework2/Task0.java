@@ -31,13 +31,14 @@ public class Task0 {
 
         int[] arr = new int[n];
 
-        System.out.println("Введите значения массива");
+        System.out.print("Введите значения массива: ");
 
         String[] arrItems = scanner.nextLine().split(" ");
 
         for (int i = 0; i < n; i++){
             arr[i] = Integer.parseInt(arrItems[i]);
         }
+
         int result = pairs(k, arr);
 
         System.out.println(result);

@@ -1,10 +1,10 @@
-package by.academy.homework2;
+package by.academy.homework.other.cycles1;
 
 import java.util.Scanner;
 
-public class Task2 {
+public class Task22 {
 
-    private static final Scanner scanner = new Scanner(System.in);
+    private static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
 
@@ -13,7 +13,6 @@ public class Task2 {
 
         System.out.print("Введите слова: ");
         String[] words = scanner.nextLine().split(" ");
-        scanner.close();
 
         for (int i = 0; i < words.length; i++){
             String word = words[i];
@@ -43,5 +42,6 @@ public class Task2 {
             size = 0;
         }
         System.out.println(words[index]);
+        System.out.println(min);
     }
 }
