@@ -33,6 +33,10 @@ public class Task7 {
             for (int j = 0; j < array.length; j++){
                 if (array[j] > 1){
                     check = false;
+                    array[j] = 0;
+                }
+                if (array[j] == 1){
+                    array[j] =0;
                 }
             }
             if (check == true){
