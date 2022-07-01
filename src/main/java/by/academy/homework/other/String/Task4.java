@@ -10,7 +10,7 @@ public class Task4 {
 
 
         System.out.print("Введите слова: ");
-        int[] symbols = new int[256];
+        int[] symbols = new int[128];
         String[] words = scanner.nextLine().split(" ");
         int k = 0, min = 0, index = 0;
         boolean forMin = true;
@@ -19,7 +19,7 @@ public class Task4 {
             String word = words[i];
             for (int j = 0; j < symbols.length; j++){
                 for (int c = 0; c < word.length(); c++){
-                    if (word.charAt(c) == symbols[j]){
+                    if (word.charAt(c) == j){
                         symbols[j]++;
                     }
                 }
