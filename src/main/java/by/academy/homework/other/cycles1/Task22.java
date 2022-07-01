@@ -8,40 +8,14 @@ public class Task22 {
 
     public static void main(String[] args) {
 
-        int size = 0, min = 0, index = 0;
-        boolean check = true;
+        System.out.print("Введите число: ");
+        int n = scanner.nextInt();
+        double sum = 1;
 
-        System.out.print("Введите слова: ");
-        String[] words = scanner.nextLine().split(" ");
-
-        for (int i = 0; i < words.length; i++){
-            String word = words[i];
-            char[] symbols = new char[word.length()];
-            for (int j = 0; j < word.length(); j++){
-                if (j == 0){
-                    symbols[j] = word.charAt(j);
-                    size++;
-                }
-                else {
-                    for (int c = 0; c < symbols.length; c++){
-                        if (symbols[c] == word.charAt(j)) {
-                            check = false;
-                        }
-                    }
-                    if (check == true){
-                        symbols[j] = word.charAt(j);
-                        size++;
-                    }
-                }
-                check = true;
-            }
-            if (min == 0 || min > size){
-                min = size;
-                index = i;
-            }
-            size = 0;
+        for (int i = 2; i <= n; i++){
+            sum += (double) 1/i;
+            System.out.println(i + " " + sum);
         }
-        System.out.println(words[index]);
-        System.out.println(min);
+        System.out.println(sum);
     }
 }

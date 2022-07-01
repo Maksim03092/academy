@@ -37,12 +37,11 @@ public class Task1 {
             }
         }
         for (int i = 0; i < symbols.length; i++){
-            System.out.print(symbols[i] + "\t");
             if (symbols[i] != 0){
                 check = false;
                 break;
             }
         }
-        System.out.println("\n"+check);
+        System.out.println(check);
     }
 }
