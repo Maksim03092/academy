@@ -3,22 +3,15 @@ package by.academy.homework2;
 import java.util.Scanner;
 
 public class Task1 {
-
     private static final Scanner scanner = new Scanner(System.in);
-
     public static void main(String[] args) {
-
         int[] symbols = new int[255];
-
         System.out.print("Введите первое слово: ");
         String word1 = scanner.nextLine();
-
         System.out.print("Введите второе слово: ");
         String word2 = scanner.nextLine();
         scanner.close();
-
         boolean check = true;
-
         if (word1.length() != word2.length()){
             check = false;
         }

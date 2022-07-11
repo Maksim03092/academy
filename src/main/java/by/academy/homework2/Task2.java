@@ -3,18 +3,13 @@ package by.academy.homework2;
 import java.util.Scanner;
 
 public class Task2 {
-
     private static final Scanner scanner = new Scanner(System.in);
-
     public static void main(String[] args) {
-
         int size = 0, min = 0, index = 0;
         boolean check = true;
-
         System.out.print("Введите слова: ");
         String[] words = scanner.nextLine().split(" ");
         scanner.close();
-
         for (int i = 0; i < words.length; i++){
             String word = words[i];
             char[] symbols = new char[word.length()];
