@@ -5,6 +5,11 @@ public class Deal {
     private User seller;
     private User buyer;
     private Product[] products;
+    private double sum;
+    private Date deadlineDate;
+
+
+
 
     public Deal(User seller, User buyer, Product[] products) {
         this.seller = seller;
@@ -13,19 +18,24 @@ public class Deal {
     }
 
     public double fullPrice(Product[] products) {
-        int sum = 0;
         for (int i = 0; i < products.length; i++) {
             sum += products[i].getPrice() * products[i].getQuality();
         }
         return sum;
     }
+
     public void bill (Deal deal){
-        int sum = 0;
         System.out.println(deal.seller.getName());
-        for (int i = 0; i < deal.products.length; i++){
-            System.out.println(deal.products[i].getName() + "\t" +  deal.products[i].calePrice(products[i]));
-            sum += deal.products[i].calePrice(products[i]);
+        if (seller.getMoney() < sum){
+            System.out.println("Вы не можете купить данные продукы");
         }
-        System.out.println("Итоговая цена: " + sum);
+        else {
+            for (int i = 0; i < deal.products.length; i++) {
+                System.out.println(deal.products[i].getName() + " " + deal.products[i].calePrice(products[i]));
+            }
+            System.out.println("Итоговая цена: " + sum);
+        }
+        deal.seller.setMoney(deal.seller.getMoney() - sum);
+        deal.buyer.setMoney(deal.buyer.getMoney());
     }
 }

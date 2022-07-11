@@ -1,11 +1,21 @@
 package by.academy.homework1;
 
 public class Cat {
+
     int age;
     String nickname;
     double money;
     char initials;
     boolean isHomeAnimal;
+
+    public Cat(String nickname){
+        this.nickname = nickname;
+        initials = nickname.charAt(0);
+    }
+
+    public Cat(){
+
+    }
 
     public void grow(){
         age++;
@@ -45,15 +55,6 @@ public class Cat {
 
     public void setHomeAnimal(boolean isHomeAnimal) {
         this.isHomeAnimal = isHomeAnimal;
-    }
-
-    public Cat(){
-
-    }
-
-    public Cat(String nickname){
-     this.nickname = nickname;
-     initials = nickname.charAt(0);
     }
 
 }

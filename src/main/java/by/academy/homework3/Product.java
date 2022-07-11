@@ -2,12 +2,11 @@ package by.academy.homework3;
 
 public class Product {
 
-    private double price;
-    private String name;
-    private int quality;
-    private boolean isTax;
+    protected double price;
+    protected String name;
+    protected int quality;
 
-    public Product(double price, String name, int quality) {
+    public Product(String name, int quality, double price) {
         this.price = price;
         this.name = name;
         this.quality = quality;
@@ -35,18 +34,6 @@ public class Product {
 
     public void setQuality(int quality) {
         this.quality = quality;
-    }
-
-    public boolean isTax() {
-        return isTax;
-    }
-
-    public void setTax(boolean tax) {
-        isTax = tax;
-    }
-
-    public double discount (){
-        return 1;
     }
 
     public double calePrice (Product product){
