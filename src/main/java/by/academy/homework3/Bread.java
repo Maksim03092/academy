@@ -5,9 +5,8 @@ import java.util.Objects;
 public class Bread extends Product {
 
     private String type;
-
-    public Bread(String name, int quality, double price) {
-        super(name, quality, price);
+    public Bread(String name, double price, int quality) {
+        super(name, price, quality);
     }
 
     public String getType() {
@@ -37,8 +36,7 @@ public class Bread extends Product {
     }
 
     @Override
-    public double calePrice(Product product) {
-        double sum = this.price * quality;
-        return sum;
+    double discount() {
+        return 0.7;
     }
 }

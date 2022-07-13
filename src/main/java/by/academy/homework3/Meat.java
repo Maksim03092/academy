@@ -6,8 +6,8 @@ public class Meat extends Product{
 
     private String sort;
 
-    public Meat(String name, int quality, double price) {
-        super(name, quality, price);
+    public Meat(String name, double price,int quality) {
+        super(name, price, quality);
     }
 
     public String getType() {
@@ -37,8 +37,7 @@ public class Meat extends Product{
     }
 
     @Override
-    public double calePrice(Product product) {
-        double sum = this.price * quality * 0.9;
-        return sum;
+    double discount() {
+        return 0.9;
     }
 }

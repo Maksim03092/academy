@@ -1,12 +1,12 @@
 package by.academy.homework3;
 
-public class Product {
+public abstract class Product {
 
     protected double price;
     protected String name;
     protected int quality;
 
-    public Product(String name, int quality, double price) {
+    public Product(String name, double price, int quality) {
         this.price = price;
         this.name = name;
         this.quality = quality;
@@ -36,8 +36,10 @@ public class Product {
         this.quality = quality;
     }
 
+    abstract double discount();
+
     public double calePrice (Product product){
-        double sum = product.price * product.quality;
+        double sum = product.price * product.quality * discount();
         return sum;
     }
 }

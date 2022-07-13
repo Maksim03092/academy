@@ -6,8 +6,8 @@ public class Milk extends Product {
 
     private String percentFat;
 
-    public Milk(String name, int quality, double price) {
-        super(name, quality, price);
+    public Milk(String name, double price, int quality) {
+        super(name, price, quality);
     }
 
     public String getPercentFat() {
@@ -37,8 +37,7 @@ public class Milk extends Product {
     }
 
     @Override
-    public double calePrice(Product product) {
-        double sum = this.price * quality * 0.8;
-        return sum;
+    double discount() {
+        return 0.8;
     }
 }
