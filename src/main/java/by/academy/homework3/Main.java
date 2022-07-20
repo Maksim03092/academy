@@ -13,14 +13,13 @@ public class Main {
     public static void main(String[] args) throws ParseException {
 
         boolean check = true;
-        boolean check1 = true;
 
         User seller = new User("Max",1000);
         User buyer = new User("Nick", 1000);
 
         Date date = new Date();
 
-        while (true) {
+/*        while (true) {
             System.out.print("Введите свою дату рождения: ");
             String date1 = scanner.next();
             if (date.checkDate1(date1)){
@@ -76,43 +75,14 @@ public class Main {
             else{
                 System.out.println("Вы неправильно ввели свою почту. Повторите попытку");
             }
-        }
+        }*/
 
-        System.out.println("Добро пожаловать!!!");
-        System.out.print("Введите количество продуктов, которые вы хотите добавить в корзину: ");
-        int n = scanner.nextInt();
-        Product[] products = new Product[n];
-        for (int j = 0; j < n; j++){
-            while (true) {
-                System.out.print("Введите название продукта: ");
-                String nameProduct = scanner.next();
-                System.out.print("Введите количество этого продукта: ");
-                int quantity = scanner.nextInt();
-                if (nameProduct.equals("Meat")) {
-                    products[j] = new Meat("Meat", 100, quantity);
-                    break;
-                } else if (nameProduct.equals("Bread")) {
-                    products[j] = new Bread("Bread", 80, quantity);
-                    break;
-                } else if (nameProduct.equals("Milk")) {
-                    products[j] = new Milk("Milk", 60, quantity);
-                    break;
-                }
-                else {
-                    System.out.println("Я не знаю такого продукта. Повторите попытку.");
-                }
-            }
-        }
+
+        Product[] products = new Product[0];
 
         Deal deal = new Deal(seller,buyer,products);
 
-        while (true){
-            System.out.print("Введите 1, если хотите продолжить выбор продуктов и 2, если хотите получить счёт: ");
-            int endOperation = scanner.nextInt();
-            if (endOperation == 2){
-                deal.setProducts(products);
-                break;
-            }
+        while (true) {
             System.out.print("Еслм вы хотите добавить продукт(продукты) в корзину введите 1\n" +
                     "Если вы хотите удалить продукт из корзины введите 2\n" +
                     "Если вы хотите просмотреть корзину введите 3: ");
@@ -128,14 +98,27 @@ public class Main {
                     deal.countingProducts(products);
                     break;
                 default:
-                    System.out.println("Я не знаю такую команду. Повторите попытку.");
+                    System.out.println("Я не знаю такую команду.");
                     break;
             }
+            while (true) {
+                System.out.print("Введите 1, если хотите продолжить выбор продуктов и 2, если хотите получить счёт: ");
+                int endOperation = scanner.nextInt();
+                if (endOperation == 1) {
+                    check = false;
+                    break;
+                } else if (endOperation == 2) {
+                    deal.setProducts(products);
+                    break;
+                } else {
+                    System.out.println("Я не знаю такой команды. Повторите попытку");
+                }
+            }
+            if (check){
+                break;
+            }
+            check = true;
         }
-
         deal.bill(deal);
-
-        System.out.println(seller.getMoney());
-        System.out.println(buyer.getMoney());
     }
 }

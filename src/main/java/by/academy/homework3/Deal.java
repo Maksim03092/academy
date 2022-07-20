@@ -74,7 +74,7 @@ public class Deal {
         int n = scanner.nextInt();
         Product[] newProducts = new Product[products.length + n];
         for (int j = 0; j < products.length + n; j++) {
-            if (j < products.length && products[j] != null) {
+            if (j < products.length) {
                 newProducts[j] = products[j];
             } else {
                 while (true) {
@@ -102,7 +102,7 @@ public class Deal {
 
     public Product[] deleteProduct(Product[] products){
         boolean check = true;
-        Product[] newProducts = null;
+        Product[] newProducts = new Product[0];
         while (true) {
             if (products.length == 0) {
                 System.out.println("Ваша корзина пуста");
@@ -113,7 +113,7 @@ public class Deal {
             String nameProduct = scanner.next();
             for (int i = 0; i < products.length; i++) {
                 if ((nameProduct.equals("Meat") || nameProduct.equals("Milk") || nameProduct.equals("Bread"))
-                        && products[i].getName().equals(nameProduct) && products[i] != null) {
+                        && products[i].getName().equals(nameProduct)) {
                     products[i] = null;
                     check = false;
                     for (int j = 0; j < products.length - 1; j++) {
@@ -139,8 +139,11 @@ public class Deal {
 
     public void countingProducts(Product[] products) {
         int sum = 0;
-        for (int j = 0; j < products.length; j++) {
-            if (products[j] != null) {
+        if (products.length == 0){
+            System.out.println("Ваша корзина пуста");
+        }
+        else {
+            for (int j = 0; j < products.length; j++) {
                 System.out.println(products[j].getName() + " " + products[j].calePrice(products[j]));
                 sum += products[j].calePrice(products[j]);
             }
@@ -160,17 +163,18 @@ public class Deal {
 
     public void bill (Deal deal){
         System.out.println(deal.seller.getName());
-        if (seller.getMoney() < fullPrice(products)){
+        if (products.length == 0){
+            System.out.println("Ваша корзина пуста");
+        }
+        else if (seller.getMoney() < fullPrice(products)){
             System.out.println("Вы не можете купить данные продукы");
         }
         else {
             for (int i = 0; i < deal.products.length; i++) {
-                if (deal.products[i] != null) {
                     System.out.println(deal.products[i].getName() + " " + deal.products[i].calePrice(products[i]));
-                }
             }
-            System.out.println("Итоговая цена: " + fullPrice(products));
         }
+        System.out.println("Итоговая цена: " + fullPrice(products));
         deal.seller.setMoney(deal.seller.getMoney() + fullPrice(products));
         deal.buyer.setMoney(deal.buyer.getMoney() - fullPrice(products));
     }
