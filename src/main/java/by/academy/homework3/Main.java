@@ -19,7 +19,7 @@ public class Main {
 
         Date date = new Date();
 
-/*        while (true) {
+        while (true) {
             System.out.print("Введите свою дату рождения: ");
             String date1 = scanner.next();
             if (date.checkDate1(date1)){
@@ -75,7 +75,7 @@ public class Main {
             else{
                 System.out.println("Вы неправильно ввели свою почту. Повторите попытку");
             }
-        }*/
+        }
 
 
         Product[] products = new Product[0];
