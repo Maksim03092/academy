@@ -8,9 +8,9 @@ import java.util.Scanner;
 public class CustomDate {
 
     private static final Scanner scanner = new Scanner(System.in);
-    public Day day;
-    public Month month;
-    public Year year;
+    private Day day;
+    private Month month;
+    private Year year;
 
     public CustomDate(int day, int month, int year) {
 
@@ -26,28 +26,6 @@ public class CustomDate {
         this.month = this.new Month(Integer.parseInt(localDate.substring(3, 5)));
         this.year = this.new Year(Integer.parseInt(localDate.substring(6, 10)));
 
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        CustomDate that = (CustomDate) o;
-        return Objects.equals(day.day, that.day.day) && Objects.equals(month.month, that.month.month) && Objects.equals(year.year, that.year.year);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(day.day, month.month, year.year);
-    }
-
-    @Override
-    public String toString() {
-        return "CustomDate{" +
-                "day=" + day.day +
-                ", month=" + month.month +
-                ", year=" + year.year +
-                '}';
     }
 
     class Day {
@@ -80,7 +58,7 @@ public class CustomDate {
             }
         }
 
-        public void getDay(){
+        public void getDayName(){
             LocalDate localDate = LocalDate.of(year.year, month.month, day);
             for (Day.DayOfWeek element : Day.DayOfWeek.values()){
                 if (element.numberDay == localDate.getDayOfWeek().getValue()){
@@ -98,7 +76,7 @@ public class CustomDate {
             this.month = month;
         }
 
-        public int getDay(int month, Year year, int year2 ){
+        public int getDayInMonth(int month, Year year, int year2 ){
 
             int day = 0;
 
@@ -169,6 +147,19 @@ public class CustomDate {
             }
         }
     }
+
+    public Day getDay() {
+        return day;
+    }
+
+    public Month getMonth() {
+        return month;
+    }
+
+    public Year getYear() {
+        return year;
+    }
+
     public void setLocalDate(){
         while (true) {
             System.out.print("Введите дату: ");
@@ -212,7 +203,7 @@ public class CustomDate {
             }
         }
         for (int i = 1; i < this.month.month; i++){
-            numberDate1 += this.month.getDay(i, this.year, this.year.year);
+            numberDate1 += this.month.getDayInMonth(i, this.year, this.year.year);
         }
 
         numberDate1 += this.day.day;
@@ -226,7 +217,7 @@ public class CustomDate {
             }
         }
         for (int i = 1; i < month; i++){
-            numberDate2 += this.month.getDay(i, this.year, year);
+            numberDate2 += this.month.getDayInMonth(i, this.year, year);
         }
 
         numberDate2 += day;
@@ -240,6 +231,27 @@ public class CustomDate {
         else {
             System.out.println("Даты равны");
         }
+    }
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        CustomDate that = (CustomDate) o;
+        return Objects.equals(day.day, that.day.day) && Objects.equals(month.month, that.month.month) && Objects.equals(year.year, that.year.year);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(day.day, month.month, year.year);
+    }
+
+    @Override
+    public String toString() {
+        return "CustomDate{" +
+                "day=" + day.day +
+                ", month=" + month.month +
+                ", year=" + year.year +
+                '}';
     }
 }
 
@@ -345,8 +357,8 @@ class TestCustomDate{
             }
             break;
         }
-        customDate.year.checkLeapYear();
-        customDate.day.getDay();
+        customDate.getYear().checkLeapYear();
+        customDate.getDay().getDayName();
         customDate.numberOfDaysInInterval();
     }
 }
