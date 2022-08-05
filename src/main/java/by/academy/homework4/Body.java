@@ -44,3 +44,10 @@ public class Body {
         }
     }
 }
+
+class TestBody{
+    public static void main(String[] args) {
+        Body body = new Body();
+        body.live();
+    }
+}
