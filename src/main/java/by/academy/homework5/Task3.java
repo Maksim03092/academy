@@ -1,5 +1,6 @@
 package by.academy.homework5;
 
+import java.util.Arrays;
 import java.util.Iterator;
 
 public class Task3<T> implements Iterator<T> {
@@ -36,9 +37,7 @@ public class Task3<T> implements Iterator<T> {
         Integer[][] array = new Integer[4][4];
 
         for (int i = 0; i < array.length; i++){
-            for (int j = 0; j < array[i].length; j++){
-                array[i][j] = i;
-            }
+            Arrays.fill(array[i], i);
         }
 
         Task3<Integer> task3 = new Task3<>(array);
